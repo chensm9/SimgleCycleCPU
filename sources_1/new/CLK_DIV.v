@@ -27,6 +27,7 @@ module CLK_DIV(
     reg[20:0] counter;
     initial begin
         counter <= 0;
+        CLK_out <= 0;
     end
     always@(posedge CLK_in) begin
         counter <= counter+1;

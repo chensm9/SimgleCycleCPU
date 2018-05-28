@@ -28,9 +28,6 @@ module Gen_Counter(
         counter <= 0;
     end
     always@(posedge CLK) begin
-        if (counter == 2'b11)
-            counter <= 0;
-        else
-            counter <= counter + 1;
+        counter <= counter + 1;
     end
 endmodule

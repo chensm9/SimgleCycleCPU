@@ -34,6 +34,7 @@ module SingleCycleCPU(
     wire [5:0] sa;
     wire [25:0] j_addr;
     wire zero, PCWre, ALUSrcA, ALUSrcB, DBDataSrc, RegWre, InsMemRW, mRD, mWR, ExtSel, RegDst;
+    
     PC pc(PCWre, PCSrc, clk, Reset, ImExt, j_addr, currentPC, nextPC);
     Ins_Mem im(currentPC, InsMemRW, opCode, rs, rt, rd, Immediate, j_addr, sa);
     CU cu(opCode, zero, InsMemRW, ExtSel, PCWre, RegDst, RegWre, ALUOp, ALUSrcA, ALUSrcB, PCSrc, mRD, mWR, DBDataSrc);
@@ -42,3 +43,4 @@ module SingleCycleCPU(
     RegisterFile rf(clk, Reset, RegWre, RegDst, DBDataSrc, rs, rt, rd, result, DMOut, ReadData1, ReadData2);
     Extend ext(Immediate, ExtSel, ImExt);
 endmodule
+

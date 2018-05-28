@@ -25,5 +25,6 @@ module Extend(
     input ExtSel,
     output [31:0] ImExt
     );
-    assign ImExt = (ExtSel == 1 && Immediate[15] == 1) ? {16'hFFFF, Immediate} : {16'h0000, Immediate};
+    assign ImExt = (ExtSel == 1 && Immediate[15] == 1) ? 
+                   {16'hFFFF, Immediate} : {16'h0000, Immediate};
 endmodule
