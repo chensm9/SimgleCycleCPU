@@ -27,7 +27,6 @@ module PC(
     input Reset,
     input [31:0] ImExt, // ����չ��������
     input [25:0] j_addr,      // jָ� 25λ��ַ
-    input ExtSel,
     output reg [31:0] currentPC,
     output reg [31:0] nextPC
     );
@@ -39,7 +38,7 @@ module PC(
             currentPC = nextPC;
         end 
     end
-    always @(PCWre or PCSrc or ImExt or j_addr or ExtSel) begin
+    always @(PCWre or PCSrc or ImExt or j_addr) begin
         if (PCWre == 1) begin
             if (PCSrc == 2'b00) 
                 nextPC = currentPC + 4;

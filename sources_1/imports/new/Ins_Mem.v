@@ -26,11 +26,12 @@ module Ins_Mem(
     output [5:0] opCode,   
     output [4:0] rs, rt, rd,  
     output [15:0] Immediate,
-    output [25:0] j_addr,    // j指锟斤拷锟斤拷转锟斤拷址锟斤拷锟斤拷转锟斤拷锟斤拷
+    output [25:0] j_addr,
     output [5:0] sa
     );
-    reg [7:0] Mem[0:127];
     reg [31:0] Ins;
+    reg [7:0] Mem[0:127];
+    // 从本地文件读取指令集并存储在Mem中
     initial begin
         $readmemb("C:/Users/admin/Desktop/SimgleCycleCPU/instructions.txt", Mem);
         Ins = 0;
